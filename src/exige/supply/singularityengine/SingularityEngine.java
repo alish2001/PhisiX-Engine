@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import exige.supply.singularityengine.graphics.Screen;
 import exige.supply.singularityengine.levels.Level;
 import exige.supply.singularityengine.levels.RandomLevel;
+import exige.supply.singularityengine.modules.Camera;
 import exige.supply.singularityengine.modules.VectorViewer;
 import supply.exige.phisix.PhisiX;
 
@@ -45,6 +46,7 @@ public class SingularityEngine extends Canvas implements Runnable {
 
 	private Screen screen;
 	private Level level;
+	private Camera camera;
 	private VectorViewer vectorViewer;
 
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); // Create buffered image
@@ -77,6 +79,7 @@ public class SingularityEngine extends Canvas implements Runnable {
 	private void init(boolean fullscreen) {
 		screen = new Screen(WIDTH, HEIGHT);
 		vectorViewer = new VectorViewer(screen);
+		camera = new Camera(screen, level);
 		this.fullscreen = fullscreen;
 
 		// DEFAULT VALUES
@@ -148,7 +151,7 @@ public class SingularityEngine extends Canvas implements Runnable {
 
 		BufferStrategy bs = getBufferStrategy(); // Retrieve the buffer strategy
 		screen.clear(); // Clear screen
-		level.render(0, 0, screen); // Render current screen
+		level.render(PhisiX.ball.getX()-screen.getWidth()/2, PhisiX.ball.getY() -screen.getHeight()/2 , screen); // Render current screen
 		vectorViewer.render(); // Render vector properties
 
         PhisiX.drawTrail(screen);
@@ -248,6 +251,7 @@ public class SingularityEngine extends Canvas implements Runnable {
 	 */
 	public void setLevel(Level level) {
 		this.level = level;
+		camera = new Camera(screen, level);
 	}
 
 	/**

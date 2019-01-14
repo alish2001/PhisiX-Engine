@@ -11,7 +11,7 @@ import exige.supply.singularityengine.U;
 
 public class Vector {
 
-    private final int FP_PRECISION = 2; // Floating point precision constant
+    private final int FP_PRECISION = 3; // Floating point precision constant
     private final double GRAVITY = 4.9;
     private double x, y, angle, speed = 0;
 

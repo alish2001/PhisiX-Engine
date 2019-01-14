@@ -214,4 +214,18 @@ public class Level {
     public String getName() {
         return name;
     }
+    
+    /**
+     * @return level width
+     */
+    public int getWidth() {
+    	return width;
+    }
+    
+    /**
+     * @return level height
+     */
+    public int getHeight() {
+    	return height;
+    }
 }

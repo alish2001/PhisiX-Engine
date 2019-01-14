@@ -15,13 +15,14 @@ import exige.supply.singularityengine.levels.tiles.TileType;
 public class L_PhisiX extends Level {
 	
     public L_PhisiX() {
+    	//
         super("PhisiX", "levels/PhisiX.png", 16); // Store level file path
 
         // Set one spawnpoint at (10, 10)
         SpawnPoint[] spawnPoints = new SpawnPoint[1];
         spawnPoints[0] = new SpawnPoint(10, 10);
         setSpawnPoints(spawnPoints);
-        //generate(); // Generate random level
+       //generate(); // Generate level
     }
 
     // Generates blank phisix level
@@ -29,7 +30,7 @@ public class L_PhisiX extends Level {
         // For all tiles
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                setTile(x, y, TileType.CERAMIC_FLOOR.getTileClass()); // Set a random tile
+                setTile(x, y, TileType.AIR.getTileClass()); // Set a random tile
             }
         }
     }

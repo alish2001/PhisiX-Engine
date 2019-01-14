@@ -11,7 +11,7 @@ import exige.supply.singularityengine.levels.Tile;
 
 public class Screen {
 
-    private int width, height;
+    private int width, height = 0;
     private int[] pixels;
     private int xOffset, yOffset;
 

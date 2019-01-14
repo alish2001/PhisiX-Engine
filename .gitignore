@@ -7,3 +7,4 @@
 *.MF
 out/*
 .idea/workspace.xml
+/bin/

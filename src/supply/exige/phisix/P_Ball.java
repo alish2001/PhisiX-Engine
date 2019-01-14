@@ -17,6 +17,10 @@ public class P_Ball extends Projectile {
 		sprite = new Sprite(20, 20, 0x000000);
 		collidable = true;
 	}
+	
+	public double getFlightTime() {
+		// TODO: https://en.wikipedia.org/wiki/Projectile_motion
+	}
 
     @Override
     public void update() { // update method run every update cycle to update the projectile state
