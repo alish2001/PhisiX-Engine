@@ -31,11 +31,11 @@ public class SingularityEngine extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	public final static int SCALE = 1;
-	public final static int WIDTH = 800;
+	public final static int WIDTH = 1000;
 	public final static int HEIGHT = WIDTH / 16 * 9;
 	public boolean fullscreen;
 
-	public static int UP = 30;
+	public static int UP = 100;
 
 	private String title = ENGINE_NAME + " v" + VERSION + " | ";
 	private Thread thread;
@@ -136,7 +136,6 @@ public class SingularityEngine extends Canvas implements Runnable {
 		if (paused)
 			return;
 		level.update();
-		PhisiX.ball.time += 0.1;
 	}
 
 	// render method run every render cycle to render game state
@@ -151,13 +150,15 @@ public class SingularityEngine extends Canvas implements Runnable {
 		screen.clear(); // Clear screen
 		level.render(0, 0, screen); // Render current screen
 		vectorViewer.render(); // Render vector properties
+
+        PhisiX.drawTrail(screen);
 		
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.getPixels()[i]; // Write screen pixels to buffered pixels
 		}
 		Graphics g = bs.getDrawGraphics(); // Link graphics object to buffer strategy
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null); // Draw image to Graphics object
-		PhisiX.drawStuff(g);
+        PhisiX.drawStuff(g);
 		g.dispose(); // Empty rendered graphics from memory
 		bs.show(); // Show calculated buffer
 	}

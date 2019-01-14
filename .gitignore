@@ -1,0 +1,9 @@
+*.class
+*.prefs
+.project
+.classpath
+*.xml
+*.iml
+*.MF
+out/*
+.idea/workspace.xml

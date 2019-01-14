@@ -51,8 +51,8 @@ public abstract class Projectile extends Entity {
 
     @Override
     public void update() { // update method run every update cycle to update the projectile state
-        double newX = vector.getXComponent(); // Calculate the value to add to x to move it
-        double newY = vector.getYComponent(); // Calculate the value to add to y to move it
+        double newX = vector.getX(); // Calculate the value to add to x to move it
+        double newY = vector.getY(); // Calculate the value to add to y to move it
         move(newX, newY); // Attempt movement
 
         if (getPixelDistanceTravelled() > renderRange) remove(); // If projectiles is past render range, remove

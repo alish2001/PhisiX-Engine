@@ -13,6 +13,6 @@ import exige.supply.singularityengine.levels.Tile;
 public class AirTile extends Tile {
 
     public AirTile(Sprite sprite) {
-        super(sprite, true); // Set solidity to true
+        super(sprite, false); // Set solidity to true
     }
 }
